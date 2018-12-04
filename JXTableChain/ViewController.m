@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "JXTableChainView.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) JXTableChainView *tableChainView;
 
 @end
 
@@ -16,14 +19,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self.view addSubview:self.tableChainView];
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (JXTableChainView *)tableChainView {
+    
+    if (!_tableChainView) {
+        _tableChainView = [[JXTableChainView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) andLeftWidthProportion:0.3];
+    }
+    
+    return _tableChainView;
 }
-
 
 @end
